@@ -2,7 +2,7 @@ Template repository for new Godot projects
 
 ## Dependencies
 
-This template project uses Godot 3.2.3 stable.
+This template project uses Godot 3.3.1 stable.
 
 The GitHub Actions workflows use `firebelley/godot-export`, `actions/checkout`, and `actions/upload-artifact`.
 
