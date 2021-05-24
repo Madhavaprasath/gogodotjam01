@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Calender",
+"language": "GDScript",
+"path": "res://game/Game elements/Game_clock.gd"
+}, {
 "base": "Label",
 "class": "DebugLabel",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://game/loading/TransitionScreen.gd"
 } ]
 _global_script_class_icons={
+"Calender": "",
 "DebugLabel": "",
 "Game": "",
 "GroupMessenger": "",
