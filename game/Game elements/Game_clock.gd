@@ -3,12 +3,10 @@ class_name Calender
 
 
 
-const time_zones=["Day","Night"]
 
-onready var current_data=OS.get_date()
+onready var current_data=Globals.date
 
-func _ready():
-	pass
+
 
 
 func update_date():
@@ -20,16 +18,21 @@ func update_date():
 		change_time(30)
 	print(current_data)
 
+
 func change_time(maximum_date):
-	if current_data["month"]<=12:
+	if current_data["month"]<12:
 		if current_data["day"] <maximum_date:
 				current_data["day"]+=1
 		else:
 			current_data["month"]+=1
 			current_data["day"]=1
-	else:
-		current_data["month"]=1
-		current_data["year"]+=1
+	elif current_data["month"]>=12:
+		if current_data["day"] <maximum_date:
+				current_data["day"]+=1
+		else:
+			current_data["month"]=1
+			current_data["day"]=1
+			current_data["year"]+=1
 		
 
 

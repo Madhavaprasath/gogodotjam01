@@ -1,0 +1,22 @@
+{
+  "Crop_details": {
+    "Wheat": {
+      "Days_grow": 2,
+      "Seed_drop": 1,
+      "Stable_days": 3,
+      "Late_days": 3
+    },
+    "Maize ": {
+      "Days_grow": 3,
+      "Seed_drop": 1,
+      "Stable_days": 4,
+      "Late_days": 1
+    },
+    "Soybeans": {
+      "Days_grow": 4,
+      "Seed_drop": 1,
+      "Stable_days": 5,
+      "Late_days": 2
+    }
+  }
+}
