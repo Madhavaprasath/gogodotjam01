@@ -16,23 +16,17 @@ var intialized=false
 var expected_time=[]
 
 func _ready():
-	Globals.connect("update_data",self,"on_updating_data")
-	apply_conditions()
+	pass
+
 func _unhandled_input(event):
 	if event.is_action_released("Click") && planting_seed!="":
 		planted_seed=planting_seed
-		apply_conditions()
 		planting_seed=""
 
 
-func _on_Plant_area_area_entered(area):
-	planting_seed="Wheat"
-
-
-func _on_Plant_area_area_exited(area):
-	planting_seed=""
-
-func apply_conditions()->void:
+func apply_conditions(seed_name)->void:
+	print("applied")
+	planted_seed=seed_name
 	intialized=true
 	var days_taken=crop_details["Wheat"]["Days_grow"]
 	var seeding=crop_details["Wheat"]["Seed_drop"]
@@ -58,6 +52,11 @@ func calculating_Days_taken(data):
 		sum+=conditions[i]
 		expected_time.append(return_expected_date(data,last_date,sum))
 
+func at_end():
+	planted_seed=""
+	planted_time={}
+	conditions=[]
+	expected_time=[]
 func return_expected_date(data,last_date,sum):
 	var target=data.duplicate()
 	var expected_date=target["day"]+sum

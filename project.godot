@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Calender",
 "language": "GDScript",
-"path": "res://game/Game elements/Game_clock.gd"
+"path": "res://game/Game elements/Game_clock/Game_clock.gd"
 }, {
 "base": "Label",
 "class": "DebugLabel",

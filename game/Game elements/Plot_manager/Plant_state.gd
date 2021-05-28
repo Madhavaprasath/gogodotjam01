@@ -33,10 +33,10 @@ func _physics_process(delta):
 
 
 func state_logic(delta):
-	pass
-
+	if current_state in ["Emptied"]:
+		plot_manager.at_end()
+		finish_plantation()
 func transition(delta):
-	print(plot_manager.current_date_month)
 	match current_state:
 		"Initialized":
 			if plot_manager.current_date_month["day"]==plot_manager.expected_time[0]["day"]:

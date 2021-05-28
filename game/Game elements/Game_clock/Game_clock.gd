@@ -20,15 +20,12 @@ func update_date():
 
 
 func change_time(maximum_date):
-	if current_data["month"]<12:
-		if current_data["day"] <maximum_date:
+	if current_data["day"] <maximum_date:
 				current_data["day"]+=1
-		else:
+	else:
+		if current_data["month"]<12:
 			current_data["month"]+=1
 			current_data["day"]=1
-	elif current_data["month"]>=12:
-		if current_data["day"] <maximum_date:
-				current_data["day"]+=1
 		else:
 			current_data["month"]=1
 			current_data["day"]=1
