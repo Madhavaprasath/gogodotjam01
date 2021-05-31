@@ -1,8 +1,6 @@
 extends Node2D
 
 
-var planting_seed=""
-var planted_seed=""
 
 onready var plant_area=get_node("Plant_area")
 onready var animation_player=get_node("AnimationPlayer")
@@ -11,29 +9,33 @@ onready var Plant=get_node("Plant_state")
 
 var current_date_month=Globals.date
 var planted_time
+var planted_seed=""
 var conditions=[]
 var intialized=false
 var expected_time=[]
+var condition_dict
+var is_fertilized=false
+
+var drop_seeds={}
 
 func _ready():
 	pass
 
-func _unhandled_input(event):
-	if event.is_action_released("Click") && planting_seed!="":
-		planted_seed=planting_seed
-		planting_seed=""
 
 
 func apply_conditions(seed_name)->void:
 	print("applied")
 	planted_seed=seed_name
 	intialized=true
-	var days_taken=crop_details["Wheat"]["Days_grow"]
-	var seeding=crop_details["Wheat"]["Seed_drop"]
-	var stable_days=crop_details["Wheat"]["Stable_days"]
-	var Late_days=crop_details["Wheat"]["Late_days"]
+	condition_dict={
+		"Initalized":1,
+		"Growing":crop_details[planted_seed]["Days_grow"],
+		"Seed_droping":crop_details[planted_seed]["Seed_drop"],
+		"Stable":crop_details[planted_seed]["Stable_days"],
+		"Late_stable":crop_details[planted_seed]["Late_days"]
+	}
 	planted_time=current_date_month
-	conditions=[1,days_taken,seeding,stable_days,Late_days]
+	conditions=[1,condition_dict["Growing"],condition_dict["Seed_droping"],condition_dict["Stable"],condition_dict["Late_stable"]]
 	calculating_Days_taken(planted_time)
 	Plant.start_plantation()
 
@@ -52,11 +54,38 @@ func calculating_Days_taken(data):
 		sum+=conditions[i]
 		expected_time.append(return_expected_date(data,last_date,sum))
 
+func start_fertilization():
+	on_fetilization(Plant.current_state)
+
+
+
+func on_fetilization(state):
+	if !is_fertilized && intialized:
+		if state!="Initialized" or state!="Emptied":
+			is_fertilized=true
+		match state:
+			"Growing":
+				expected_time[1]["day"]-=1
+			"Seed_droping":
+				expected_time[2]["day"]-=1
+			"Stable":
+				expected_time[3]["day"]-=1
+			"Late_stable":
+				expected_time[4]["day"]-=1
+
+func remove_the_plot():
+	print("removed")
+	Plant.current_state="Emptied"
+
+
 func at_end():
 	planted_seed=""
 	planted_time={}
 	conditions=[]
 	expected_time=[]
+	condition_dict={}
+	is_fertilized=false
+
 func return_expected_date(data,last_date,sum):
 	var target=data.duplicate()
 	var expected_date=target["day"]+sum

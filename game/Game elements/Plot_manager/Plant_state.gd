@@ -39,19 +39,19 @@ func state_logic(delta):
 func transition(delta):
 	match current_state:
 		"Initialized":
-			if plot_manager.current_date_month["day"]==plot_manager.expected_time[0]["day"]:
+			if compare_days(plot_manager.current_date_month,plot_manager.expected_time[0]):
 				return states[2]
 		"Growing":
-			if plot_manager.current_date_month["day"]==plot_manager.expected_time[1]["day"]:
+			if compare_days(plot_manager.current_date_month,plot_manager.expected_time[1]):
 				return states[3]
 		"Seed_droping":
-			if plot_manager.current_date_month["day"]==plot_manager.expected_time[2]["day"]:
+			if compare_days(plot_manager.current_date_month,plot_manager.expected_time[2]):
 				return states[4]
 		"Stable":
-			if plot_manager.current_date_month["day"]==plot_manager.expected_time[3]["day"]:
+			if compare_days(plot_manager.current_date_month,plot_manager.expected_time[3]):
 				return states[5]
 		"Late_stable":
-			if plot_manager.current_date_month["day"]==plot_manager.expected_time[4]["day"]:
+			if compare_days(plot_manager.current_date_month,plot_manager.expected_time[3]):
 				return states[6]
 		"Emptied":
 			pass
@@ -62,6 +62,17 @@ func start_plantation():
 
 func finish_plantation():
 	current_state=null
+
+
+
+func compare_days(dict1,dict2):
+	#compare date
+	if dict1["day"]>=dict2["day"]&&dict1["month"]==dict2["month"]:
+		return true
+	else:
+		return false
+
+
 
 
 func enter_state(new_state,old_state):

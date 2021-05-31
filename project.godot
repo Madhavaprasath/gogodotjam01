@@ -80,6 +80,14 @@ Click={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Envirorment"
+2d_physics/layer_2="Plot"
+2d_physics/layer_3="Seeds"
+2d_physics/layer_4="Table"
+2d_physics/layer_5="Table_seeds"
+
 [physics]
 
 common/physics_fps=160
