@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/Game elements/Plot_manager/Plant_state.gd" type="Script" id=1]
 [ext_resource path="res://game/Game elements/Plot_manager/Plot_manager.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://game/Game elements/Plot_manager/Plant_area.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -20,9 +21,14 @@ texture = ExtResource( 3 )
 [node name="Plant_area" type="Area2D" parent="." groups=[
 "Plant_area",
 ]]
+collision_layer = 2
+collision_mask = 21
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plant_area"]
 shape = SubResource( 1 )
 
 [node name="Plant_state" type="Node" parent="."]
 script = ExtResource( 1 )
+
+[connection signal="body_entered" from="Plant_area" to="Plant_area" method="_on_Plant_area_body_entered"]

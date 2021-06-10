@@ -4,12 +4,13 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 22.6933, 12.4831 )
 
 [node name="Table_seed" type="Area2D" groups=[
 "Table_seed",
 ]]
 scale = Vector2( 0.5, 0.5 )
+z_index = 100
 collision_layer = 16
 collision_mask = 0
 script = ExtResource( 1 )
@@ -17,11 +18,22 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="BG" type="Sprite" parent="."]
+
+[node name="Element" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Showamount" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="mouse_entered" from="." to="." method="_on_Table_seed_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Table_seed_mouse_exited"]

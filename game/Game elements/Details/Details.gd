@@ -8,18 +8,22 @@ onready var Seeding_label=get_node("Control/VBoxContainer/HBoxContainer2/Seeding
 onready var Seed_drop=get_node("Control/VBoxContainer/HBoxContainer2/Seed_drop")
 onready var Stable_days=get_node("Control/VBoxContainer/HBoxContainer3/Stable_days")
 onready var Late_stable=get_node("Control/VBoxContainer/HBoxContainer3/Late_stable")
+
 func _ready():
 	finish_display()
 
 func on_display(Seedname):
 	print("displaying")
+	Seed_texture.texture=load("res://Sprites/Seeds/"+str(Seedname)+".png")
 	Seed_name.set_text("Name:"+str(Seedname))
 	Seeding_label.set_text("Days taken for seeding:"+str(display_details[Seedname]["Days_grow"])+"Days")
 	Seed_drop.set_text("Days to Drops Seeds:"+str(display_details[Seedname]["Seed_drop"])+"Days")
 	Stable_days.set_text("Days to be stable:"+str(display_details[Seedname]["Stable_days"])+"Days")
 	Late_stable.set_text("Days to be Late_stable:"+str(display_details[Seedname]["Late_days"])+"Days")
 
+
 func finish_display():
+	Seed_texture.texture=null
 	Seed_name.set_text("")
 	Seeding_label.set_text("")
 	Seed_drop.set_text("")

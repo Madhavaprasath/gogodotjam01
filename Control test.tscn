@@ -1,0 +1,33 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 277.0
+margin_bottom = 153.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tabs" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -233.0
+margin_bottom = -97.0
+
+[node name="Tabs2" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -233.0
+margin_bottom = -97.0

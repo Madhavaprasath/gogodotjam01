@@ -1,28 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game/Game elements/Plots/Plots.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://game/Game elements/Plot_manager/Plot_manager.tscn" type="PackedScene" id=3]
 
-[sub_resource type="TileSet" id=1]
-0/name = "icon.png 0"
-0/texture = ExtResource( 2 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 64 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-
 [node name="Plots" type="TileMap"]
-tile_set = SubResource( 1 )
+collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0 )
 script = ExtResource( 1 )
 plot_manager = ExtResource( 3 )

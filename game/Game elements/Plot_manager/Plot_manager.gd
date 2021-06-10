@@ -7,6 +7,8 @@ onready var animation_player=get_node("AnimationPlayer")
 onready var crop_details=ImportData.crop_details
 onready var Plant=get_node("Plant_state")
 
+
+var is_planted=false
 var current_date_month=Globals.date
 var planted_time
 var planted_seed=""
@@ -24,21 +26,24 @@ func _ready():
 
 
 func apply_conditions(seed_name)->void:
-	print("applied")
-	planted_seed=seed_name
-	intialized=true
-	condition_dict={
-		"Initalized":1,
-		"Growing":crop_details[planted_seed]["Days_grow"],
-		"Seed_droping":crop_details[planted_seed]["Seed_drop"],
-		"Stable":crop_details[planted_seed]["Stable_days"],
-		"Late_stable":crop_details[planted_seed]["Late_days"]
-	}
-	planted_time=current_date_month
-	conditions=[1,condition_dict["Growing"],condition_dict["Seed_droping"],condition_dict["Stable"],condition_dict["Late_stable"]]
-	calculating_Days_taken(planted_time)
-	Plant.start_plantation()
-
+	if !is_planted:
+		is_planted=true
+		print("applied")
+		planted_seed=seed_name
+		intialized=true
+		condition_dict={
+			"Initalized":1,
+			"Growing":crop_details[planted_seed]["Days_grow"],
+			"Seed_droping":crop_details[planted_seed]["Seed_drop"],
+			"Stable":crop_details[planted_seed]["Stable_days"],
+			"Late_stable":crop_details[planted_seed]["Late_days"]
+		}
+		planted_time=current_date_month
+		conditions=[1,condition_dict["Growing"],condition_dict["Seed_droping"],condition_dict["Stable"],condition_dict["Late_stable"]]
+		calculating_Days_taken(planted_time)
+		Plant.start_plantation()
+	else:
+		print("i cant plant")
 func calculating_Days_taken(data):
 	
 	var last_date
@@ -56,7 +61,7 @@ func calculating_Days_taken(data):
 
 func start_fertilization():
 	on_fetilization(Plant.current_state)
-
+	plant_area.emit_signal("change_tile",position,1)
 
 
 func on_fetilization(state):
@@ -79,13 +84,14 @@ func remove_the_plot():
 
 
 func at_end():
+	is_planted=false
 	planted_seed=""
 	planted_time={}
 	conditions=[]
 	expected_time=[]
 	condition_dict={}
 	is_fertilized=false
-
+	plant_area.emit_signal("change_tile",position,0)
 func return_expected_date(data,last_date,sum):
 	var target=data.duplicate()
 	var expected_date=target["day"]+sum

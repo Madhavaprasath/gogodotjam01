@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game/Game elements/Table_elements/table_element.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Seeds/Spider_Lily.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.1895, 15.3859 )
+
+[node name="Table_seed" instance=ExtResource( 1 )]
+Element_name = "Spider_Lily"
+
+[node name="Element" parent="." index="1"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource( 1 )

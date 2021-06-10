@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Seeds/Spider_Lily.png" type="Texture" id=1]
+[ext_resource path="res://game/Game elements/Seeds/Seeds.tscn" type="PackedScene" id=2]
+
+[node name="Seeds" instance=ExtResource( 2 )]
+seed_name = "Spider_Lily"
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )

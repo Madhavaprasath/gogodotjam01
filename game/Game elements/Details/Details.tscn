@@ -23,35 +23,37 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 margin_right = 500.0
-margin_bottom = 80.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 500, 64 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer"]
 margin_right = 64.0
-margin_bottom = 80.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_vertical = 3
+expand = true
 
 [node name="Seed_name" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
 margin_left = 68.0
 margin_right = 500.0
-margin_bottom = 80.0
+margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Name:"
 valign = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
-margin_top = 84.0
+margin_top = 68.0
 margin_right = 500.0
-margin_bottom = 165.0
+margin_bottom = 126.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Seeding_label" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
 margin_right = 248.0
-margin_bottom = 81.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "Days taken for seeding:"
@@ -60,22 +62,22 @@ valign = 1
 [node name="Seed_drop" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
 margin_left = 252.0
 margin_right = 500.0
-margin_bottom = 81.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "Days to Drops Seeds:"
 valign = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
-margin_top = 169.0
+margin_top = 130.0
 margin_right = 500.0
-margin_bottom = 250.0
+margin_bottom = 188.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Stable_days" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
 margin_right = 248.0
-margin_bottom = 81.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Days to be stable:"
@@ -84,8 +86,15 @@ valign = 1
 [node name="Late_stable" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
 margin_left = 252.0
 margin_right = 500.0
-margin_bottom = 81.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 text = "Days To Be Latestable:"
 valign = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 192.0
+margin_right = 500.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
